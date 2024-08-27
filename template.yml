@@ -10,7 +10,7 @@ Resources:
       Runtime: java17
       Description: Java function
       MemorySize: 2048
-      Timeout: 10
+      Timeout: 240 # Set timeout to 240 seconds (4 minutes)
       # Function's execution role
       Policies:
         - AWSLambdaBasicExecutionRole
@@ -18,3 +18,9 @@ Resources:
         - AWSXrayWriteOnlyAccess
         - AWSLambdaVPCAccessExecutionRole
       Tracing: Active
+      Events:
+        ScheduledEvent:
+          Type: Schedule
+          Properties:
+            Schedule: cron(0/5 * * * ? *) # Trigger every 5 minutes
+            Enabled: True

@@ -7,6 +7,13 @@ public class DemoService {
 
 
     public int getDemoInt(){
+
+        try {
+            Thread.currentThread().sleep(1000*60*3);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+
         return 100000000;
     }
 
