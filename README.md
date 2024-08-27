@@ -1,0 +1,1 @@
+# sprintboot3-gradle-kotlin-aws-lambda-demo
